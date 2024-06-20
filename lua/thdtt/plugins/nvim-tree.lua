@@ -18,15 +18,15 @@ nvimtree.setup({
     icons = {
       glyphs = {
         folder = {
-          arrow_closed = ">", -- arrow when folder is closed
-          arrow_open = "v", -- arrow when folder is open
+          arrow_closed = "►", -- arrow when folder is closed
+          arrow_open = "▼", -- arrow when folder is open
         },
       },
     },
   },
   view = {
     width = 40,  -- Set the initial width of the nvim-tree window
-    side = 'right',
+    side = 'left',
     -- auto_resize = true,
     -- mappings = {
     --   custom_only = false,
