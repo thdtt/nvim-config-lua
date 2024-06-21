@@ -29,11 +29,8 @@ return {
         "yaml",
         "html",
         "css",
-        "prisma",
         "markdown",
         "markdown_inline",
-        "svelte",
-        "graphql",
         "bash",
         "lua",
         "vim",
@@ -46,8 +43,9 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
+          -- init_selection = "<C-space>",
+          init_selection = "gnn",
+          node_incremental = "gnn",
           scope_incremental = false,
           node_decremental = "<bs>",
         },
