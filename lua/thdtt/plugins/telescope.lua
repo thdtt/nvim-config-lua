@@ -34,6 +34,16 @@ return {
           },
         },
       },
+      pickers = {
+        live_grep = {
+          mappings = {
+            i = { ["<C-f>"] = actions.to_fuzzy_refine },
+          },
+          additional_args = function()
+            return { "--max-count=1", "--fixed-strings" }
+          end,
+        },
+      },
     })
 
     telescope.load_extension("fzf")
