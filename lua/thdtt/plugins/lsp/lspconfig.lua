@@ -10,6 +10,26 @@ return {
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
+    lspconfig.tsserver.setup({
+      on_attach = function(client, bufnr)
+        local function buf_set_option(...)
+          vim.api.nvim_buf_set_option(bufnr, ...)
+        end
+        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+        -- Enable completion triggered by <c-x><c-o>
+        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+        -- typescript specific keymaps (e.g. rename file and update imports)
+        if client.name == "tsserver" then
+          keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
+          keymap.set("n", "<leader>ll", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
+          keymap.set("n", "<leader>ls", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
+        end
+      end,
+      flags = {
+        debounce_text_changes = 150,
+      },
+    })
+
     -- import mason_lspconfig plugin
     local mason_lspconfig = require("mason-lspconfig")
 
@@ -131,7 +151,22 @@ return {
           },
         })
       end,
+      ["volar"] = function()
+        lspconfig["volar"].setup({
+          capabilities = capabilities,
+          on_attach = function(client, bufnr)
+            -- Enable additional file types for Volar
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+          init_options = {
+            typescript = {
+              tsdk = "/Users/thdtt/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib",
+            },
+          },
+        })
+      end,
     })
   end,
 }
-
