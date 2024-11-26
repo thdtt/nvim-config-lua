@@ -21,3 +21,11 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+-- Move line up or down
+keymap.set("n", "<leader>j", ":m .+1<CR>==", { desc = "Move line down" })
+keymap.set("n", "<leader>k", ":m .-2<CR>==", { desc = "Move line up" })
+
+-- Move selected block up or down in visual mode
+keymap.set("v", "<leader>j", ":m '>+1<CR>gv=gv", { desc = "Move block down" })
+keymap.set("v", "<leader>k", ":m '<-2<CR>gv=gv", { desc = "Move block up" })
