@@ -159,7 +159,14 @@ return {
             },
           },
           lualine_y = {
-            { "progress", separator = " ", padding = { left = 1, right = 0 } },
+            {
+              function()
+                return " " .. (os.getenv("USER") or "unknown")
+              end,
+              color = { fg = "LightBlue", gui = "bold" }, -- Optional styling
+              separator = "/ ",
+            },
+            -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
             { "location", padding = { left = 0, right = 1 } },
           },
           lualine_z = {
