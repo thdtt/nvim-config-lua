@@ -92,8 +92,8 @@ return {
       local transparent_theme = {
         normal = {
           a = { bg = nightfly_colors.blue, fg = nightfly_colors.bg, gui = "bold" },
-          b = { bg = nightfly_colors.bg, fg = nightfly_colors.blue },
-          c = { bg = nightfly_colors.bg, fg = nightfly_colors.fg },
+          b = { bg = "NONE", fg = nightfly_colors.blue },
+          c = { bg = "NONE", fg = nightfly_colors.fg },
         },
         insert = {
           a = { bg = nightfly_colors.green, fg = nightfly_colors.bg, gui = "bold" },
@@ -153,16 +153,6 @@ return {
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
               color = function() return LazyVim.ui.fg("Constant") end,
             },
-            -- stylua: ignore
-            -- {
-            --   function()
-            --     return "  " .. (vim.bo.filetype or "none")
-            --   end,
-            --   color = { fg = "LightBlue", gui = "bold" }, -- Optional styling
-            --   cond = function()
-            --     return vim.bo.filetype ~= ""
-            --   end, -- Only display if filetype is set
-            -- },
             -- stylua: ignore
             {
               function() return "  " .. require("dap").status() end,
