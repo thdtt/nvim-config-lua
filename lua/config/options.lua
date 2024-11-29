@@ -17,3 +17,4 @@ vim.g.lazyvim_python_ruff = "ruff"
 
 -- set color scheme
 vim.g.nightflyTransparent = true
+vim.g.nightflyWinSeparator = 2

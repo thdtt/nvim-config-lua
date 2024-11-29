@@ -77,12 +77,47 @@ return {
       lualine_require.require = require
 
       local icons = LazyVim.config.icons
+      local nightfly_colors = {
+        fg = "#acb4c2", -- Foreground
+        blue = "#82aaff", -- Blue
+        cyan = "#7fdbca", -- Cyan
+        green = "#21c7a8", -- Green
+        orange = "#ffcb8b", -- Orange
+        purple = "#c792ea", -- Purple
+        red = "#ff5874", -- Red
+        yellow = "#ecc48d", -- Yellow
+      }
 
+      local transparent_theme = {
+        normal = {
+          a = { bg = "NONE", fg = nightfly_colors.blue, gui = "bold" },
+          b = { bg = "NONE", fg = nightfly_colors.blue },
+          c = { bg = "NONE", fg = nightfly_colors.blue },
+        },
+        insert = {
+          a = { bg = "NONE", fg = nightfly_colors.green, gui = "bold" },
+        },
+        visual = {
+          a = { bg = "NONE", fg = nightfly_colors.purple, gui = "bold" },
+        },
+        replace = {
+          a = { bg = "NONE", fg = nightfly_colors.red, gui = "bold" },
+        },
+        command = {
+          a = { bg = "NONE", fg = nightfly_colors.yellow, gui = "bold" },
+        },
+        inactive = {
+          a = { bg = "NONE", fg = nightfly_colors.fg },
+          b = { bg = "NONE", fg = nightfly_colors.fg },
+          c = { bg = "NONE", fg = nightfly_colors.fg },
+        },
+      }
       vim.o.laststatus = vim.g.lualine_laststatus
 
       local opts = {
         options = {
-          theme = "auto",
+          -- theme = "auto",
+          theme = transparent_theme,
           globalstatus = vim.o.laststatus == 3,
           disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
         },
