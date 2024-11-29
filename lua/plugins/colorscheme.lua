@@ -1,6 +1,6 @@
 return {
   { "EdenEast/nightfox.nvim" },
-
+  { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false },
   -- tokyonight
   {
     "folke/tokyonight.nvim",
@@ -68,7 +68,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nightfox",
+      colorscheme = "nightfly",
     },
   },
 }

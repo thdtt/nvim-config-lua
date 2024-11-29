@@ -101,7 +101,7 @@ return {
                 hint = icons.diagnostics.Hint,
               },
             },
-            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+            { "filetype", icon_only = false, padding = { left = 1, right = 1 } },
             { LazyVim.lualine.pretty_path() },
           },
           lualine_x = {
@@ -118,15 +118,15 @@ return {
               color = function() return LazyVim.ui.fg("Constant") end,
             },
             -- stylua: ignore
-            {
-              function()
-                return " " .. (vim.bo.filetype or "none")
-              end,
-              color = { fg = "LightBlue", gui = "bold" }, -- Optional styling
-              cond = function()
-                return vim.bo.filetype ~= ""
-              end, -- Only display if filetype is set
-            },
+            -- {
+            --   function()
+            --     return "  " .. (vim.bo.filetype or "none")
+            --   end,
+            --   color = { fg = "LightBlue", gui = "bold" }, -- Optional styling
+            --   cond = function()
+            --     return vim.bo.filetype ~= ""
+            --   end, -- Only display if filetype is set
+            -- },
             -- stylua: ignore
             {
               function() return "  " .. require("dap").status() end,
@@ -164,10 +164,10 @@ return {
                 return " " .. (os.getenv("USER") or "unknown")
               end,
               color = { fg = "LightBlue", gui = "bold" }, -- Optional styling
-              separator = "/ ",
+              separator = "/",
             },
             -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
-            { "location", padding = { left = 0, right = 1 } },
+            { "location", padding = { left = 1, right = 1 } },
           },
           lualine_z = {
             function()
