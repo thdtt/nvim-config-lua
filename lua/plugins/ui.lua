@@ -78,6 +78,7 @@ return {
 
       local icons = LazyVim.config.icons
       local nightfly_colors = {
+        bg = "#011627", -- Background
         fg = "#acb4c2", -- Foreground
         blue = "#82aaff", -- Blue
         cyan = "#7fdbca", -- Cyan
@@ -90,21 +91,21 @@ return {
 
       local transparent_theme = {
         normal = {
-          a = { bg = "NONE", fg = nightfly_colors.blue, gui = "bold" },
-          b = { bg = "NONE", fg = nightfly_colors.blue },
-          c = { bg = "NONE", fg = nightfly_colors.blue },
+          a = { bg = nightfly_colors.blue, fg = nightfly_colors.bg, gui = "bold" },
+          b = { bg = nightfly_colors.bg, fg = nightfly_colors.blue },
+          c = { bg = nightfly_colors.bg, fg = nightfly_colors.fg },
         },
         insert = {
-          a = { bg = "NONE", fg = nightfly_colors.green, gui = "bold" },
+          a = { bg = nightfly_colors.green, fg = nightfly_colors.bg, gui = "bold" },
         },
         visual = {
-          a = { bg = "NONE", fg = nightfly_colors.purple, gui = "bold" },
+          a = { bg = nightfly_colors.purple, fg = nightfly_colors.bg, gui = "bold" },
         },
         replace = {
-          a = { bg = "NONE", fg = nightfly_colors.red, gui = "bold" },
+          a = { bg = nightfly_colors.red, fg = nightfly_colors.bg, gui = "bold" },
         },
         command = {
-          a = { bg = "NONE", fg = nightfly_colors.yellow, gui = "bold" },
+          a = { bg = nightfly_colors.yellow, fg = nightfly_colors.bg, gui = "bold" },
         },
         inactive = {
           a = { bg = "NONE", fg = nightfly_colors.fg },
